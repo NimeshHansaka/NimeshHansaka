@@ -4,12 +4,11 @@ name: Generate Snake
 on:
   schedule:
     # every 6 hours
-    - cron: "0 */6 * * *"
+    - cron: "0 */12 * * *"
 
   # This command allows us to manually trigger the workflow from the Actions tab.
   workflow_dispatch:
 
-# The sequence of runs in this workflow:
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -18,18 +17,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checkout the repository
+      # Checkout the repository (update to v3 to avoid Node.js warnings)
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # Generate the snake animation
+      # Generate the snake animation (no gif/svg output paths needed)
       - name: Generate Snake Animation
-        uses: Platane/snk@v2.0.0
+        uses: Platane/snk@v2
         with:
-          github_user_name: NimeshHansaka
-          # Output paths
-          gif_out_path: dist/github-contribution-grid-snake.gif
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          github_user_name: NimeshHansaka  # Replace with your GitHub username
 
       # Display the status of the repository
       - name: Show Status

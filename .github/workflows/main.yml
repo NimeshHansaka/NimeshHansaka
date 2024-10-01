@@ -49,5 +49,5 @@ jobs:
           build_dir: dist
           commit_message: Update snake animations
         env: 
-          GITHUB_TOKEN: NimeshHansaka1999@
+          GITHUB_TOKEN: Nimeshhansaka1999@
 
